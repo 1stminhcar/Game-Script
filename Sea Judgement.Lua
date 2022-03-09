@@ -280,7 +280,7 @@ TextButton_2.MouseButton1Click:Connect(function()
             tween4:Play()
        elseif AutoKilling == true then
             AutoKilling = false
-            AutoKilling = false
+            Autoclicking = false
             local tween = game:GetService("TweenService"):Create(BtnIcon_2,TweenInfo.new(1),{Position = UDim2.new(0,0,0,0)})
            local tween2 = game:GetService("TweenService"):Create(AutoFarmBtn,TweenInfo.new(1),{BackgroundColor3 = Color3.fromRGB(255,0,0)})
              local tween3 = game:GetService("TweenService"):Create(BtnIcon,TweenInfo.new(1),{Position = UDim2.new(0,0,0,0)})
