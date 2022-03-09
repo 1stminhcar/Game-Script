@@ -51,6 +51,7 @@ local clickedtime  = 1
 local chesttp      = false
 local autofarming = false
 local AutoKilling = false
+local toggled = true
 --Properties:
 
 ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
@@ -277,16 +278,26 @@ TextButton_2.TextSize = 14.000
 TextButton_2.MouseButton1Click:Connect(function()
        if autofarming == false then
         autofarming = true
+            Autoclicking = true
              local tween = game:GetService("TweenService"):Create(BtnIcon_2,TweenInfo.new(1),{Position = UDim2.new(0.62,0,0,0)})
            local tween2 = game:GetService("TweenService"):Create(AutoFarmBtn,TweenInfo.new(1),{BackgroundColor3 = Color3.fromRGB(0,255,0)})
+             local tween3 = game:GetService("TweenService"):Create(BtnIcon,TweenInfo.new(1),{Position = UDim2.new(0.62,0,0,0)})
+            local tween4 = game:GetService("TweenService"):Create(AutoClickBtn,TweenInfo.new(1),{BackgroundColor3 = Color3.fromRGB(0,255,0)})
         tween:Play()
             tween2:Play()
+            tween3:Play()
+            tween4:Play()
        elseif autofarming == true then
             autofarming = false
+            Autoclicking = false
             local tween = game:GetService("TweenService"):Create(BtnIcon_2,TweenInfo.new(1),{Position = UDim2.new(0,0,0,0)})
            local tween2 = game:GetService("TweenService"):Create(AutoFarmBtn,TweenInfo.new(1),{BackgroundColor3 = Color3.fromRGB(255,0,0)})
+             local tween3 = game:GetService("TweenService"):Create(BtnIcon,TweenInfo.new(1),{Position = UDim2.new(0,0,0,0)})
+            local tween4 = game:GetService("TweenService"):Create(AutoClickBtn,TweenInfo.new(1),{BackgroundColor3 = Color3.fromRGB(255,0,0)})
         tween:Play()
             tween2:Play()
+            tween3:Play()
+            tween4:Play()
        end
  end)
 
@@ -411,8 +422,17 @@ UserInputService.InputChanged:Connect(function(input)
         update(input)
     end
 end)
+UserInputService.InputBegan:Connect(function(input)
+    if input.Keycode == Enum.Keycode.LeftControl and toggled then
+            Main.Visible = false
+    elseif input.Keycode == Enum.Keycode.LeftControl and not toggled then
+            Main.Visible = true
+end)
 game:GetService("RunService").Heartbeat:Connect(function()
     if Autoclicking == true then
+            if game.Players.LocalPlayer.Backpack:FindFirstChild("Yoru") then
+                game.Players.LocalPlayer.Character.Humanoid:EquipTool(game.Players.LocalPlayer.Backpack:FindFirstChild("Yoru"))
+               end
         if clickedtime == 1 then
             clickedtime = 2
             game.Players.LocalPlayer.Character:FindFirstChildWhichIsA("Tool").Remotes.RemotePunch:FireServer("Key1",game.Players.LocalPlayer.Character:FindFirstChildWhichIsA("Tool").Handle.Damage)
