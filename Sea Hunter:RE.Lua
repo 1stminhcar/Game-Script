@@ -104,7 +104,7 @@ Chest.TextWrapped = true
 Chest.MouseButton1Click:Connect(function()
 if chesttp == false then
     chesttp = true
-    for i,v in pairs(game.Workspace:FindFirstChild("Chest"):GetChildren()) do
+    for i,v in pairs(game.Workspace:FindFirstChild("Chests"):GetChildren()) do
         if v:FindFirstChild("HitBox") then
             wait(.5)
             print("OK")
