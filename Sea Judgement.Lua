@@ -430,6 +430,7 @@ game:GetService("RunService").Heartbeat:Connect(function()
          if AutoKilling == true then
            for i,v in pairs(game.Players:GetPlayers()) do
                 if v.Name ~= game.Players.LocalPlayer.Name and game.Workspace:WaitForChild(v.Name):FindFirstChild("AttackAble") then
+                    print(v.Name)
                 task.wait(0.5)
                 game.Workspace:WaitForChild(game.Players.LocalPlayer.Name).HumanoidRootPart.CFrame = v.Character:FindFirstChild("HumanoidRootPart").CFrame
             end
