@@ -227,7 +227,7 @@ TextButton.TextSize = 14.000
 TextButton.MouseButton1Click:Connect(function()
     if Autoclicking == false then
         local tween = game:GetService("TweenService"):Create(BtnIcon,TweenInfo.new(1),{Position = UDim2.new(0.62,0,0,0)})
-            local tween2 = game:GetService("TweenService"):Create(AutoClickBtn,TweenInfo.new(1),{BackgroundColor = Color3.fromRGB(0,255,0)})
+            local tween2 = game:GetService("TweenService"):Create(AutoClickBtn,TweenInfo.new(1),{BackgroundColor3 = Color3.fromRGB(0,255,0)})
         tween2:Play()
             tween:Play()
         tween.Completed:Connect(function()
@@ -235,7 +235,7 @@ TextButton.MouseButton1Click:Connect(function()
         end)
     elseif Autoclicking == true then
         local tween = game:GetService("TweenService"):Create(BtnIcon,TweenInfo.new(1),{Position = UDim2.new(0,0,0,0)})
-           local tween2 = game:GetService("TweenService"):Create(AutoClickBtn,TweenInfo.new(1),{BackgroundColor = Color3.fromRGB(255,0,0)})
+           local tween2 = game:GetService("TweenService"):Create(AutoClickBtn,TweenInfo.new(1),{BackgroundColor3 = Color3.fromRGB(255,0,0)})
         tween:Play()
             tween2:Play()
         tween.Completed:Connect(function()
@@ -271,13 +271,13 @@ TextButton_2.MouseButton1Click:Connect(function()
        if autofarming == false then
         autofarming = true
              local tween = game:GetService("TweenService"):Create(BtnIcon_2,TweenInfo.new(1),{Position = UDim2.new(0,0,0,0)})
-           local tween2 = game:GetService("TweenService"):Create(AutoFarmBtn,TweenInfo.new(1),{BackgroundColor = Color3.fromRGB(0,255,0)})
+           local tween2 = game:GetService("TweenService"):Create(AutoFarmBtn,TweenInfo.new(1),{BackgroundColor3 = Color3.fromRGB(0,255,0)})
         tween:Play()
             tween2:Play()
        elseif autofarming == true then
             autofarming = false
             local tween = game:GetService("TweenService"):Create(BtnIcon_2,TweenInfo.new(1),{Position = UDim2.new(0,0,0,0)})
-           local tween2 = game:GetService("TweenService"):Create(AutoFarmBtn,TweenInfo.new(1),{BackgroundColor = Color3.fromRGB(255,0,0)})
+           local tween2 = game:GetService("TweenService"):Create(AutoFarmBtn,TweenInfo.new(1),{BackgroundColor3 = Color3.fromRGB(255,0,0)})
         tween:Play()
             tween2:Play()
        end
