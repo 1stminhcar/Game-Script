@@ -241,59 +241,6 @@ TextButton.MouseButton1Click:Connect(function()
     end
 end)
 
-
-
-AutoFarmBtn.Name = "AutoFarmBtn"
-AutoFarmBtn.Parent = MainFarm
-AutoFarmBtn.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
-AutoFarmBtn.Position = UDim2.new(0.30657053, 0, 0.689138532, 0)
-AutoFarmBtn.Size = UDim2.new(0.153285265, 0, 0.0749063641, 0)
-
-UICorner_6.Parent = AutoFarmBtn
-
-BtnIcon_2.Name = "BtnIcon"
-BtnIcon_2.Parent = AutoFarmBtn
-BtnIcon_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-BtnIcon_2.Size = UDim2.new(0.400000006, 0, 1, 0)
-
-UICorner_7.Parent = BtnIcon_2
-
-TextButton_2.Parent = AutoFarmBtn
-TextButton_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-TextButton_2.BackgroundTransparency = 1.000
-TextButton_2.Size = UDim2.new(1, 0, 1, 0)
-TextButton_2.Font = Enum.Font.SourceSans
-TextButton_2.Text = ""
-TextButton_2.TextColor3 = Color3.fromRGB(0, 0, 0)
-TextButton_2.TextSize = 14.000
-TextButton_2.MouseButton1Click:Connect(function()
-       if AutoKilling == false then
-        AutoKilling = true
-            Autoclicking = true
-             local tween = game:GetService("TweenService"):Create(BtnIcon_2,TweenInfo.new(1),{Position = UDim2.new(0.62,0,0,0)})
-           local tween2 = game:GetService("TweenService"):Create(AutoFarmBtn,TweenInfo.new(1),{BackgroundColor3 = Color3.fromRGB(0,255,0)})
-             local tween3 = game:GetService("TweenService"):Create(BtnIcon,TweenInfo.new(1),{Position = UDim2.new(0.62,0,0,0)})
-            local tween4 = game:GetService("TweenService"):Create(AutoClickBtn,TweenInfo.new(1),{BackgroundColor3 = Color3.fromRGB(0,255,0)})
-        tween:Play()
-            tween2:Play()
-            tween3:Play()
-            tween4:Play()
-       elseif AutoKilling == true then
-            AutoKilling = false
-            Autoclicking = false
-            local tween = game:GetService("TweenService"):Create(BtnIcon_2,TweenInfo.new(1),{Position = UDim2.new(0,0,0,0)})
-           local tween2 = game:GetService("TweenService"):Create(AutoFarmBtn,TweenInfo.new(1),{BackgroundColor3 = Color3.fromRGB(255,0,0)})
-             local tween3 = game:GetService("TweenService"):Create(BtnIcon,TweenInfo.new(1),{Position = UDim2.new(0,0,0,0)})
-            local tween4 = game:GetService("TweenService"):Create(AutoClickBtn,TweenInfo.new(1),{BackgroundColor3 = Color3.fromRGB(255,0,0)})
-        tween:Play()
-            tween2:Play()
-            tween3:Play()
-            tween4:Play()
-       end
- end)
-
-
-
 AutoFarmBtn.Name = "AutoFarmBtn"
 AutoFarmBtn.Parent = MainFarm
 AutoFarmBtn.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
