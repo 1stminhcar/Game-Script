@@ -30,6 +30,12 @@ local BtnIcon_2 = Instance.new("Frame")
 local UICorner_7 = Instance.new("UICorner")
 local TextButton_2 = Instance.new("TextButton")
 local AutoFarmTitle = Instance.new("TextLabel")
+local AutoKillBtn = Instance.new("Frame")
+local UICorner_8 = Instance.new("UICorner")
+local BtnIcon_3 = Instance.new("Frame")
+local UICorner_9 = Instance.new("UICorner")
+local TextButton_3 = Instance.new("TextButton")
+local AutoKillTitle = Instance.new("TextLabel")
 local Bar_4 = Instance.new("Frame")
 local Bar_5 = Instance.new("Frame")
 --Service:
@@ -44,6 +50,7 @@ local Autoclicking = false
 local clickedtime  = 1
 local chesttp      = false
 local autofarming = false
+local AutoKilling = false
 --Properties:
 
 ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
@@ -296,6 +303,68 @@ AutoFarmTitle.TextScaled = true
 AutoFarmTitle.TextSize = 14.000
 AutoFarmTitle.TextWrapped = true
 
+AutoKillBtn.Name = "AutoKillBtn"
+AutoKillBtn.Parent = MainFarm
+AutoKillBtn.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+AutoKillBtn.Position = UDim2.new(0.30657053, 0, 0.82396996, 0)
+AutoKillBtn.Size = UDim2.new(0.153285265, 0, 0.0749063641, 0)
+
+UICorner_8.Parent = AutoKillBtn
+
+BtnIcon_3.Name = "BtnIcon"
+BtnIcon_3.Parent = AutoKillBtn
+BtnIcon_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+BtnIcon_3.Size = UDim2.new(0.400000006, 0, 1, 0)
+
+UICorner_9.Parent = BtnIcon_3
+
+TextButton_3.Parent = AutoKillBtn
+TextButton_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextButton_3.BackgroundTransparency = 1.000
+TextButton_3.Size = UDim2.new(1, 0, 1, 0)
+TextButton_3.Font = Enum.Font.SourceSans
+TextButton_3.Text = ""
+TextButton_3.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextButton_3.TextSize = 14.000
+TextButton_3.MouseButton1Click:Connect(function()
+       if AutoKilling == false then
+        AutoKilling = true
+            Autoclicking == true
+             local tween = game:GetService("TweenService"):Create(BtnIcon_3,TweenInfo.new(1),{Position = UDim2.new(0.62,0,0,0)})
+           local tween2 = game:GetService("TweenService"):Create(AutoKillBtn,TweenInfo.new(1),{BackgroundColor3 = Color3.fromRGB(0,255,0)})
+            local tween3 = game:GetService("TweenService"):Create(BtnIcon,TweenInfo.new(1),{Position = UDim2.new(0.62,0,0,0)})
+            local tween4 = game:GetService("TweenService"):Create(AutoClickBtn,TweenInfo.new(1),{BackgroundColor3 = Color3.fromRGB(0,255,0)})
+        tween:Play()
+            tween2:Play()
+        tween3:Play()
+            tween4:Play()
+       elseif AutoKilling == true then
+            AutoKilling = false
+            Autoclicking == false
+            local tween = game:GetService("TweenService"):Create(BtnIcon_3,TweenInfo.new(1),{Position = UDim2.new(0,0,0,0)})
+           local tween2 = game:GetService("TweenService"):Create(AutoKillBtn,TweenInfo.new(1),{BackgroundColor3 = Color3.fromRGB(255,0,0)})
+      local tween3 = game:GetService("TweenService"):Create(BtnIcon,TweenInfo.new(1),{Position = UDim2.new(0,0,0,0)})
+            local tween4 = game:GetService("TweenService"):Create(AutoClickBtn,TweenInfo.new(1),{BackgroundColor3 = Color3.fromRGB(255,0,0)})
+        tween:Play()
+            tween2:Play()
+        tween3:Play()
+            tween4:Play()
+       end
+ end)
+
+AutoKillTitle.Name = "Auto Kill Title"
+AutoKillTitle.Parent = MainFarm
+AutoKillTitle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+AutoKillTitle.BackgroundTransparency = 1.000
+AutoKillTitle.Position = UDim2.new(0.0558629632, 0, 0.82396996, 0)
+AutoKillTitle.Size = UDim2.new(0.214599371, 0, 0.0749063641, 0)
+AutoKillTitle.Font = Enum.Font.Ubuntu
+AutoKillTitle.Text = "(Sword Only)Auto Kill Player:"
+AutoKillTitle.TextColor3 = Color3.fromRGB(255, 255, 255)
+AutoKillTitle.TextScaled = true
+AutoKillTitle.TextSize = 14.000
+AutoKillTitle.TextWrapped = true
+
 Bar_4.Name = "Bar"
 Bar_4.Parent = Main
 Bar_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -357,5 +426,11 @@ game:GetService("RunService").Heartbeat:Connect(function()
      end
       if autofarming == true then
          game.ReplicatedStorage.Remotes.Quest:FireServer("FinishQuest",100000000000000)   
+      end
+      if AutoKilling == true then
+           for i,v in pairs(game.Players:GetPlayers()) do
+                task.wait(0.5)
+                game.Workspace:WaitForChild(game.Players.LocalPlayer.Name).HumanoidRootPart.CFrame = v.Character:FindFirstChild("HumanoidRootPart").CFrame
+        end
       end
 end)
