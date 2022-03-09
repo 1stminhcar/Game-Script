@@ -423,9 +423,9 @@ UserInputService.InputChanged:Connect(function(input)
     end
 end)
 UserInputService.InputBegan:Connect(function(input)
-    if input.Keycode == Enum.Keycode.LeftControl and toggled then
+    if input.KeyCode == Enum.KeyCode.LeftControl and toggled then
             Main.Visible = false
-    elseif input.Keycode == Enum.Keycode.LeftControl and not toggled then
+    elseif input.KeyCode == Enum.KeyCode.LeftControl and not toggled then
             Main.Visible = true
      end
 end)
