@@ -227,13 +227,17 @@ TextButton.TextSize = 14.000
 TextButton.MouseButton1Click:Connect(function()
     if Autoclicking == false then
         local tween = game:GetService("TweenService"):Create(BtnIcon,TweenInfo.new(1),{Position = UDim2.new(0.62,0,0,0)})
-        tween:Play()
+            local tween2 = game:GetService("TweenService"):Create(AutoClickBtn,TweenInfo.new(1),{BackgroundColor = Color3.fromRGB(0,255,0)})
+        tween2:Play()
+            tween:Play()
         tween.Completed:Connect(function()
             Autoclicking = true
         end)
     elseif Autoclicking == true then
         local tween = game:GetService("TweenService"):Create(BtnIcon,TweenInfo.new(1),{Position = UDim2.new(0,0,0,0)})
+           local tween2 = game:GetService("TweenService"):Create(AutoClickBtn,TweenInfo.new(1),{BackgroundColor = Color3.fromRGB(255,0,0)})
         tween:Play()
+            tween2:Play()
         tween.Completed:Connect(function()
             Autoclicking = false
         end)
@@ -266,10 +270,16 @@ TextButton_2.TextSize = 14.000
 TextButton_2.MouseButton1Click:Connect(function()
        if autofarming == false then
         autofarming = true
-            game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = true
-            game.ReplicatedStorage.Remotes.Quest:FireServer("FinishQuest",10000)
+             local tween = game:GetService("TweenService"):Create(BtnIcon_2,TweenInfo.new(1),{Position = UDim2.new(0,0,0,0)})
+           local tween2 = game:GetService("TweenService"):Create(AutoFarmBtn,TweenInfo.new(1),{BackgroundColor = Color3.fromRGB(0,255,0)})
+        tween:Play()
+            tween2:Play()
        elseif autofarming == true then
             autofarming = false
+            local tween = game:GetService("TweenService"):Create(BtnIcon_2,TweenInfo.new(1),{Position = UDim2.new(0,0,0,0)})
+           local tween2 = game:GetService("TweenService"):Create(AutoFarmBtn,TweenInfo.new(1),{BackgroundColor = Color3.fromRGB(255,0,0)})
+        tween:Play()
+            tween2:Play()
        end
  end)
 
@@ -345,5 +355,7 @@ game:GetService("RunService").Heartbeat:Connect(function()
             game.Players.LocalPlayer.Character:FindFirstChildWhichIsA("Tool").Remotes.RemotePunch:FireServer("Key3",game.Players.LocalPlayer.Character:FindFirstChildWhichIsA("Tool").Handle.Damage)
         end
      end
-
+      if autofarming == true then
+         game.ReplicatedStorage.Remotes.Quest:FireServer("FinishQuest",10000000000000000)   
+      end
 end)
