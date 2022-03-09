@@ -427,6 +427,7 @@ UserInputService.InputBegan:Connect(function(input)
             Main.Visible = false
     elseif input.Keycode == Enum.Keycode.LeftControl and not toggled then
             Main.Visible = true
+     end
 end)
 game:GetService("RunService").Heartbeat:Connect(function()
     if Autoclicking == true then
