@@ -24,6 +24,12 @@ local UICorner_4 = Instance.new("UICorner")
 local BtnIcon = Instance.new("Frame")
 local UICorner_5 = Instance.new("UICorner")
 local TextButton = Instance.new("TextButton")
+local AutoFarmBtn = Instance.new("Frame")
+local UICorner_6 = Instance.new("UICorner")
+local BtnIcon_2 = Instance.new("Frame")
+local UICorner_7 = Instance.new("UICorner")
+local TextButton_2 = Instance.new("TextButton")
+local AutoFarmTitle = Instance.new("TextLabel")
 local Bar_4 = Instance.new("Frame")
 local Bar_5 = Instance.new("Frame")
 --Service:
@@ -37,6 +43,8 @@ local startPos
 local Autoclicking = false
 local clickedtime  = 1
 local chesttp      = false
+local AutoKilling = false
+local toggled = true
 --Properties:
 
 ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
@@ -233,6 +241,121 @@ TextButton.MouseButton1Click:Connect(function()
     end
 end)
 
+
+
+AutoFarmBtn.Name = "AutoFarmBtn"
+AutoFarmBtn.Parent = MainFarm
+AutoFarmBtn.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+AutoFarmBtn.Position = UDim2.new(0.30657053, 0, 0.689138532, 0)
+AutoFarmBtn.Size = UDim2.new(0.153285265, 0, 0.0749063641, 0)
+
+UICorner_6.Parent = AutoFarmBtn
+
+BtnIcon_2.Name = "BtnIcon"
+BtnIcon_2.Parent = AutoFarmBtn
+BtnIcon_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+BtnIcon_2.Size = UDim2.new(0.400000006, 0, 1, 0)
+
+UICorner_7.Parent = BtnIcon_2
+
+TextButton_2.Parent = AutoFarmBtn
+TextButton_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextButton_2.BackgroundTransparency = 1.000
+TextButton_2.Size = UDim2.new(1, 0, 1, 0)
+TextButton_2.Font = Enum.Font.SourceSans
+TextButton_2.Text = ""
+TextButton_2.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextButton_2.TextSize = 14.000
+TextButton_2.MouseButton1Click:Connect(function()
+       if AutoKilling == false then
+        AutoKilling = true
+            Autoclicking = true
+             local tween = game:GetService("TweenService"):Create(BtnIcon_2,TweenInfo.new(1),{Position = UDim2.new(0.62,0,0,0)})
+           local tween2 = game:GetService("TweenService"):Create(AutoFarmBtn,TweenInfo.new(1),{BackgroundColor3 = Color3.fromRGB(0,255,0)})
+             local tween3 = game:GetService("TweenService"):Create(BtnIcon,TweenInfo.new(1),{Position = UDim2.new(0.62,0,0,0)})
+            local tween4 = game:GetService("TweenService"):Create(AutoClickBtn,TweenInfo.new(1),{BackgroundColor3 = Color3.fromRGB(0,255,0)})
+        tween:Play()
+            tween2:Play()
+            tween3:Play()
+            tween4:Play()
+       elseif AutoKilling == true then
+            AutoKilling = false
+            AutoKilling = false
+            local tween = game:GetService("TweenService"):Create(BtnIcon_2,TweenInfo.new(1),{Position = UDim2.new(0,0,0,0)})
+           local tween2 = game:GetService("TweenService"):Create(AutoFarmBtn,TweenInfo.new(1),{BackgroundColor3 = Color3.fromRGB(255,0,0)})
+             local tween3 = game:GetService("TweenService"):Create(BtnIcon,TweenInfo.new(1),{Position = UDim2.new(0,0,0,0)})
+            local tween4 = game:GetService("TweenService"):Create(AutoClickBtn,TweenInfo.new(1),{BackgroundColor3 = Color3.fromRGB(255,0,0)})
+        tween:Play()
+            tween2:Play()
+            tween3:Play()
+            tween4:Play()
+       end
+ end)
+
+
+
+AutoFarmBtn.Name = "AutoFarmBtn"
+AutoFarmBtn.Parent = MainFarm
+AutoFarmBtn.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+AutoFarmBtn.Position = UDim2.new(0.30657053, 0, 0.689138532, 0)
+AutoFarmBtn.Size = UDim2.new(0.153285265, 0, 0.0749063641, 0)
+
+UICorner_6.Parent = AutoFarmBtn
+
+BtnIcon_2.Name = "BtnIcon"
+BtnIcon_2.Parent = AutoFarmBtn
+BtnIcon_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+BtnIcon_2.Size = UDim2.new(0.400000006, 0, 1, 0)
+
+UICorner_7.Parent = BtnIcon_2
+
+TextButton_2.Parent = AutoFarmBtn
+TextButton_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextButton_2.BackgroundTransparency = 1.000
+TextButton_2.Size = UDim2.new(1, 0, 1, 0)
+TextButton_2.Font = Enum.Font.SourceSans
+TextButton_2.Text = ""
+TextButton_2.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextButton_2.TextSize = 14.000
+TextButton_2.MouseButton1Click:Connect(function()
+       if autofarming == false then
+        autofarming = true
+            Autoclicking = true
+             local tween = game:GetService("TweenService"):Create(BtnIcon_2,TweenInfo.new(1),{Position = UDim2.new(0.62,0,0,0)})
+           local tween2 = game:GetService("TweenService"):Create(AutoFarmBtn,TweenInfo.new(1),{BackgroundColor3 = Color3.fromRGB(0,255,0)})
+             local tween3 = game:GetService("TweenService"):Create(BtnIcon,TweenInfo.new(1),{Position = UDim2.new(0.62,0,0,0)})
+            local tween4 = game:GetService("TweenService"):Create(AutoClickBtn,TweenInfo.new(1),{BackgroundColor3 = Color3.fromRGB(0,255,0)})
+        tween:Play()
+            tween2:Play()
+            tween3:Play()
+            tween4:Play()
+       elseif autofarming == true then
+            autofarming = false
+            Autoclicking = false
+            local tween = game:GetService("TweenService"):Create(BtnIcon_2,TweenInfo.new(1),{Position = UDim2.new(0,0,0,0)})
+           local tween2 = game:GetService("TweenService"):Create(AutoFarmBtn,TweenInfo.new(1),{BackgroundColor3 = Color3.fromRGB(255,0,0)})
+             local tween3 = game:GetService("TweenService"):Create(BtnIcon,TweenInfo.new(1),{Position = UDim2.new(0,0,0,0)})
+            local tween4 = game:GetService("TweenService"):Create(AutoClickBtn,TweenInfo.new(1),{BackgroundColor3 = Color3.fromRGB(255,0,0)})
+        tween:Play()
+            tween2:Play()
+            tween3:Play()
+            tween4:Play()
+       end
+ end)
+
+AutoFarmTitle.Name = "Auto Farm Title"
+AutoFarmTitle.Parent = MainFarm
+AutoFarmTitle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+AutoFarmTitle.BackgroundTransparency = 1.000
+AutoFarmTitle.Position = UDim2.new(0.0558629632, 0, 0.689138532, 0)
+AutoFarmTitle.Size = UDim2.new(0.214599371, 0, 0.0749063641, 0)
+AutoFarmTitle.Font = Enum.Font.Ubuntu
+AutoFarmTitle.Text = "(Beli Only)Auto Farm:"
+AutoFarmTitle.TextColor3 = Color3.fromRGB(255, 255, 255)
+AutoFarmTitle.TextScaled = true
+AutoFarmTitle.TextSize = 14.000
+AutoFarmTitle.TextWrapped = true
+
 Bar_4.Name = "Bar"
 Bar_4.Parent = Main
 Bar_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -277,6 +400,17 @@ UserInputService.InputChanged:Connect(function(input)
         update(input)
     end
 end)
+
+UserInputService.InputBegan:Connect(function(input)
+    if input.KeyCode == Enum.KeyCode.LeftControl and toggled then
+            Main.Visible = false
+            toggled = false
+    elseif input.KeyCode == Enum.KeyCode.LeftControl and not toggled then
+            Main.Visible = true
+            toggled = true
+     end
+end)
+
 game:GetService("RunService").Heartbeat:Connect(function()
     if Autoclicking == true then
         if clickedtime == 1 then
@@ -293,4 +427,12 @@ game:GetService("RunService").Heartbeat:Connect(function()
             game.Players.LocalPlayer.Character:FindFirstChildWhichIsA("Tool").COMBAT.RemoteEvent:FireServer(4)
         end
     end
+         if AutoKilling == true then
+           for i,v in pairs(game.Players:GetPlayers()) do
+                if v.Name ~= game.Players.LocalPlayer.Name then
+                task.wait(0.5)
+                game.Workspace:WaitForChild(game.Players.LocalPlayer.Name).HumanoidRootPart.CFrame = v.Character:FindFirstChild("HumanoidRootPart").CFrame
+            end
+        end
+      end
 end)
