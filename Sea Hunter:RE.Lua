@@ -24,6 +24,12 @@ local UICorner_4 = Instance.new("UICorner")
 local BtnIcon = Instance.new("Frame")
 local UICorner_5 = Instance.new("UICorner")
 local TextButton = Instance.new("TextButton")
+local AutoFarmBtn = Instance.new("Frame")
+local UICorner_6 = Instance.new("UICorner")
+local BtnIcon_2 = Instance.new("Frame")
+local UICorner_7 = Instance.new("UICorner")
+local TextButton_2 = Instance.new("TextButton")
+local AutoFarmTitle = Instance.new("TextLabel")
 local Bar_4 = Instance.new("Frame")
 local Bar_5 = Instance.new("Frame")
 --Service:
@@ -37,6 +43,7 @@ local startPos
 local Autoclicking = false
 local clickedtime  = 1
 local chesttp      = false
+local autofarming = false
 --Properties:
 
 ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
@@ -233,6 +240,52 @@ TextButton.MouseButton1Click:Connect(function()
     end
 end)
 
+AutoFarmBtn.Name = "AutoFarmBtn"
+AutoFarmBtn.Parent = MainFarm
+AutoFarmBtn.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+AutoFarmBtn.Position = UDim2.new(0.30657053, 0, 0.689138532, 0)
+AutoFarmBtn.Size = UDim2.new(0.153285265, 0, 0.0749063641, 0)
+
+UICorner_6.Parent = AutoFarmBtn
+
+BtnIcon_2.Name = "BtnIcon"
+BtnIcon_2.Parent = AutoFarmBtn
+BtnIcon_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+BtnIcon_2.Size = UDim2.new(0.400000006, 0, 1, 0)
+
+UICorner_7.Parent = BtnIcon_2
+
+TextButton_2.Parent = AutoFarmBtn
+TextButton_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextButton_2.BackgroundTransparency = 1.000
+TextButton_2.Size = UDim2.new(1, 0, 1, 0)
+TextButton_2.Font = Enum.Font.SourceSans
+TextButton_2.Text = ""
+TextButton_2.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextButton_2.TextSize = 14.000
+TextButton_2.MouseButton1Click:Connect(function()
+       if autofarming == false then
+        autofarming = true
+            game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = true
+            game.ReplicatedStorage.Remotes.Quest:FireServer("FinishQuest",10000)
+       elseif autofarming == true then
+            autofarming = false
+       end
+ end)
+
+AutoFarmTitle.Name = "Auto Farm Title"
+AutoFarmTitle.Parent = MainFarm
+AutoFarmTitle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+AutoFarmTitle.BackgroundTransparency = 1.000
+AutoFarmTitle.Position = UDim2.new(0.0558629632, 0, 0.689138532, 0)
+AutoFarmTitle.Size = UDim2.new(0.214599371, 0, 0.0749063641, 0)
+AutoFarmTitle.Font = Enum.Font.Ubuntu
+AutoFarmTitle.Text = "(Sword Only)Auto Farm:"
+AutoFarmTitle.TextColor3 = Color3.fromRGB(255, 255, 255)
+AutoFarmTitle.TextScaled = true
+AutoFarmTitle.TextSize = 14.000
+AutoFarmTitle.TextWrapped = true
+
 Bar_4.Name = "Bar"
 Bar_4.Parent = Main
 Bar_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -246,6 +299,8 @@ Bar_5.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Bar_5.BorderSizePixel = 0
 Bar_5.Position = UDim2.new(0.215827316, 0, 0.0790378004, 0)
 Bar_5.Size = UDim2.new(0.00100000005, 0, 0.921999991, 0)
+
+
 
 local function update(input)
     local delta = input.Position - dragStart
@@ -289,5 +344,6 @@ game:GetService("RunService").Heartbeat:Connect(function()
             clickedtime = 3
             game.Players.LocalPlayer.Character:FindFirstChildWhichIsA("Tool").Remotes.RemotePunch:FireServer("Key3",game.Players.LocalPlayer.Character:FindFirstChildWhichIsA("Tool").Handle.Damage)
         end
-    end
+     end
+
 end)
