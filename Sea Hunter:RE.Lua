@@ -448,7 +448,7 @@ game:GetService("RunService").Heartbeat:Connect(function()
         end
      end
       if autofarming == true then
-            if game.Players.LocalPlayer.TemporaryData.CurrentQuest ~= "Nothing" then
+            if game.Players.LocalPlayer.TemporaryData.CurrentQuest == "Nothing" then
                 game.ReplicatedStorage.Remotes.Quest:FireServer("GiveQuest","Quest Bandit","Kill","Bandit",5)
                 end
          game.ReplicatedStorage.Remotes.Quest:FireServer("FinishQuest",100000000000000)   
