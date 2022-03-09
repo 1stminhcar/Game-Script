@@ -425,7 +425,16 @@ game:GetService("RunService").Heartbeat:Connect(function()
         end
      end
       if autofarming == true then
+            if game.Players.LocalPlayer.TemporaryData.CurrentQuest ~= "Nothing" then
+                game.ReplicatedStorage.Remotes.Quest:FireServer("GiveQuest","Quest Bandit","Kill","Bandit",5)
+                end
          game.ReplicatedStorage.Remotes.Quest:FireServer("FinishQuest",100000000000000)   
+              for i,v in pairs(game.Workspace:FindFirstChild("Lives"):GetChildren()) do
+            if v:FindFirstChild("HumanoidRootPart") then
+                task.wait(0.5)
+                game.Workspace:WaitForChild(game.Players.LocalPlayer.Name).HumanoidRootPart.CFrame = v:FindFirstChild("HumanoidRootPart").CFrame
+            end
+        end
       end
       if AutoKilling == true then
            for i,v in pairs(game.Players:GetPlayers()) do
