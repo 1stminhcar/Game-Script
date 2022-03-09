@@ -329,7 +329,7 @@ TextButton_3.TextSize = 14.000
 TextButton_3.MouseButton1Click:Connect(function()
        if AutoKilling == false then
         AutoKilling = true
-            Autoclicking == true
+            Autoclicking = true
              local tween = game:GetService("TweenService"):Create(BtnIcon_3,TweenInfo.new(1),{Position = UDim2.new(0.62,0,0,0)})
            local tween2 = game:GetService("TweenService"):Create(AutoKillBtn,TweenInfo.new(1),{BackgroundColor3 = Color3.fromRGB(0,255,0)})
             local tween3 = game:GetService("TweenService"):Create(BtnIcon,TweenInfo.new(1),{Position = UDim2.new(0.62,0,0,0)})
@@ -340,7 +340,7 @@ TextButton_3.MouseButton1Click:Connect(function()
             tween4:Play()
        elseif AutoKilling == true then
             AutoKilling = false
-            Autoclicking == false
+            Autoclicking = false
             local tween = game:GetService("TweenService"):Create(BtnIcon_3,TweenInfo.new(1),{Position = UDim2.new(0,0,0,0)})
            local tween2 = game:GetService("TweenService"):Create(AutoKillBtn,TweenInfo.new(1),{BackgroundColor3 = Color3.fromRGB(255,0,0)})
       local tween3 = game:GetService("TweenService"):Create(BtnIcon,TweenInfo.new(1),{Position = UDim2.new(0,0,0,0)})
