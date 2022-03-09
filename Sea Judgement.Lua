@@ -350,7 +350,7 @@ AutoFarmTitle.BackgroundTransparency = 1.000
 AutoFarmTitle.Position = UDim2.new(0.0558629632, 0, 0.689138532, 0)
 AutoFarmTitle.Size = UDim2.new(0.214599371, 0, 0.0749063641, 0)
 AutoFarmTitle.Font = Enum.Font.Ubuntu
-AutoFarmTitle.Text = "(Beli Only)Auto Farm:"
+AutoFarmTitle.Text = "Auto Hunt:"
 AutoFarmTitle.TextColor3 = Color3.fromRGB(255, 255, 255)
 AutoFarmTitle.TextScaled = true
 AutoFarmTitle.TextSize = 14.000
@@ -429,6 +429,7 @@ game:GetService("RunService").Heartbeat:Connect(function()
     end
          if AutoKilling == true then
            for i,v in pairs(game.Players:GetPlayers()) do
+                print(v.Name)
                 if v.Name ~= game.Players.LocalPlayer.Name and game.Workspace:WaitForChild(v.Name):FindFirstChild("AttackAble") then
                     print(v.Name)
                 task.wait(0.5)
