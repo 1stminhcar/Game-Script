@@ -425,8 +425,10 @@ end)
 UserInputService.InputBegan:Connect(function(input)
     if input.KeyCode == Enum.KeyCode.LeftControl and toggled then
             Main.Visible = false
+            toggled = false
     elseif input.KeyCode == Enum.KeyCode.LeftControl and not toggled then
             Main.Visible = true
+            toggled = true
      end
 end)
 game:GetService("RunService").Heartbeat:Connect(function()
