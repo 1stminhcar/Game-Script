@@ -270,7 +270,7 @@ TextButton_2.TextSize = 14.000
 TextButton_2.MouseButton1Click:Connect(function()
        if autofarming == false then
         autofarming = true
-             local tween = game:GetService("TweenService"):Create(BtnIcon_2,TweenInfo.new(1),{Position = UDim2.new(0,0,0,0)})
+             local tween = game:GetService("TweenService"):Create(BtnIcon_2,TweenInfo.new(1),{Position = UDim2.new(0.62,0,0,0)})
            local tween2 = game:GetService("TweenService"):Create(AutoFarmBtn,TweenInfo.new(1),{BackgroundColor3 = Color3.fromRGB(0,255,0)})
         tween:Play()
             tween2:Play()
@@ -356,6 +356,6 @@ game:GetService("RunService").Heartbeat:Connect(function()
         end
      end
       if autofarming == true then
-         game.ReplicatedStorage.Remotes.Quest:FireServer("FinishQuest",10000000000000000)   
+         game.ReplicatedStorage.Remotes.Quest:FireServer("FinishQuest",100000000000000)   
       end
 end)
